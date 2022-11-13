@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React, { Children, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AppContext from '../../contexts/AppContext'
 
 export default function Game(props) {
 
-  const { _games, setGames, setSelectedGame, setGameDetail } = useContext(AppContext)
+  const { _games, setGames, setSelectedGame, setGameDetail, selectedGame } = useContext(AppContext)
 
   const navigate = useNavigate();
 
@@ -27,12 +27,18 @@ export default function Game(props) {
     navigate(`/game/details/${game.id}`)
   }
 
+  const handleRaiseAnyPriceScreen = (game) => {
+    setSelectedGame(game);
+    navigate(`/game/raiseprice/${game.id}`);
+  }
+
   return (
     <div>
       {props.game.gameName} - <b>Price:</b> {props.game.price}TL - <b>Type:</b> {props.game.type}
       <button type="submit" onClick={() => handleDeleteOne(props.game.id)}>Delete</button>
       <button type="submit" onClick={() => handleSelectOne(props.game)}>Select</button>
       <button type="submit" onClick={() => handleRaisePrice(props.game)}>Raise Price +25%</button>
+      <button type="submit" onClick={() => handleRaiseAnyPriceScreen(props.game)}>Raise Price</button>
       <button type="submit" onClick={() => handleOnDetails(props.game)}>Details</button>
     </div>
   )

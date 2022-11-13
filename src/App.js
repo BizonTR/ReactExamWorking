@@ -5,6 +5,7 @@ import GameAdd from './components/gameAdd/GameAdd';
 import GameDetails from './components/gameDetails/GameDetails';
 import GameList from './components/gameList/GameList';
 import GameUpdate from './components/gameUpdate/GameUpdate';
+import RaiseAnyPrice from './components/raiseAnyPrice/RaiseAnyPrice';
 import AppContext from "./contexts/AppContext"
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/game/update/:id' element={<GameUpdate />}></Route>
         <Route path='/game/add' element={<GameAdd />}></Route>
         <Route path='/game/details/:id' element={<GameDetails />}></Route>
+        <Route path='/game/raiseprice/:id' element={<RaiseAnyPrice />}></Route>
       </Routes>
     </div>
     //bir butonla bütün oyunların fiyatını 25% arttıran buton

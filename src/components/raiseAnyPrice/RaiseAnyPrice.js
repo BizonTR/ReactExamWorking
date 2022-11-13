@@ -11,7 +11,6 @@ export default function RaiseAnyPrice() {
     const handleRaiseAnyPrice = (e) =>{
         e.preventDefault();
         selectedGame.price = selectedGame.price+parseInt(e.target.raisePrice.value);
-        console.log(selectedGame.price);
         setGames([..._games.filter(game => game.id !== selectedGame.id),selectedGame])
         navigate("/games")
     }
